@@ -1,0 +1,12 @@
+<% if @note %>
+	<p>
+		Är du säker att du vill ta bort följande note: <em>"<%= @note.content%>"</em>?
+	</p>
+	<form action="/<%= @note.id %>" method="post">
+		<input type="hidden" name="_method" method="post">
+		<input type="submit" value="Ja, radera!">
+		<a href="/<%= @note.id %>">Avbryt</a>
+	</form>
+<% else %>
+	<p>Note not found</p>
+<% end %>

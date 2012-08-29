@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="sv">
-	<head>
-		<meta charset="utf-8">
-		<title><%= @siteTitle %></title>
-		<link rel="stylesheet" type="text/css" href="./style.css">
-	</head>
-	<body>
-		<h1><%= @message %></h1>
-	</body>
-</html>
+<section id="add">
+	<form action="/" method="post">
+		<textarea name="content" placeholder="Your note&hellip;"></textarea>
+		<input type="submit" value="Take Note!">
+	</form>
+</section>
+
+<% @notes.each do |note| %>
+	<article <%= 'class="complete"' if note.complete %>>
+		<p>
+			<%= note.content %>
+			<span><a href="/<%= note.id%>">[edit]</a></span>
+		</p>
+		<p class="links">
+			<a href="/<%= note.id %>/complete">&#8623;</a>
+		</p>
+		<p class="meta">Created: <%= note.created_at %></p>
+	</article>
+<% end  %>
