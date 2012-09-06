@@ -1,19 +1,44 @@
-<section id="add">
-	<form action="/" method="post">
-		<textarea name="content" placeholder="Your note&hellip;"></textarea>
-		<input type="submit" value="Take Note!">
-	</form>
-</section>
+<div class="row-fluid">
 
-<% @notes.each do |note| %>
-	<article <%= 'class="complete"' if note.complete %>>
-		<p>
-			<%= note.content %>
-			<span><a href="/<%= note.id%>">[edit]</a></span>
-		</p>
-		<p class="links">
-			<a href="/<%= note.id %>/complete">&#8623;</a>
-		</p>
-		<p class="meta">Created: <%= note.created_at %></p>
-	</article>
-<% end  %>
+	<div id="add" class="form-horizontal">
+		<form action="/" method="post">
+			<div class="control-group">
+				<label class="control-label" for="name">Namn</label>
+				<div class="controls">
+				  <input type="text" id="name" name="name" placeholder="Email">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="message">Meddelande</label>
+				<div class="controls">
+					<textarea name="message" id="message" placeholder="Ditt meddelande&hellip;"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button type="submit" class="btn">Skicka</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+<div class="row-fluid">
+
+	<% if @messages %>
+		<% @messages.each do |message| %>
+		
+			<article class="message message-<%= message.id %> row-fluid">
+				<div class="span4">
+					<%= message.name %>
+				</div>
+				<div class="span8">
+					<%= message.message %>
+					<%= message%>
+				</div>
+			</article>
+		
+		<% end %>
+	<% end %>
+
+</div>
