@@ -1,0 +1,17 @@
+body {
+	background: #eaeaea;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 960px;
+
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
